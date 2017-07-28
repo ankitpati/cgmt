@@ -12,6 +12,7 @@ int main()
     int gd = DETECT, gm;
     int max_x, max_y, x1, y1, x2, y2, dx, dy, steps, i;
     double x, y, x_inc, y_inc;
+    char p1[40], p2[40];
 
     puts("x1?");
     scanf(" %d%*c", &x1);
@@ -52,6 +53,9 @@ int main()
     x_inc = dx / (double) steps;
     y_inc = dy / (double) steps;
 
+    sprintf(p1, "(%d, %d)", x1, y1);
+    outtextxy(x1, y1, p1);
+
     for (i = 0; i < steps; ++i) {
         x += x_inc;
         y += y_inc;
@@ -59,6 +63,9 @@ int main()
         putpixel(x, y, BLACK);
         delay(DELAY_MS);
     }
+
+    sprintf(p2, "(%d, %d)", x2, y2);
+    outtextxy(x2, y2, p2);
 
     getch();
     closegraph();
