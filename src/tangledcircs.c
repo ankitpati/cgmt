@@ -26,7 +26,7 @@ int main()
     circle(centre_x, centre_y, radius);
 
     for (i = 0; i < 6; ++i){
-        angle = i * M_PI / 3 - M_PI / 2;
+        angle = i * M_PI / 3;
         circle(
             centre_x + radius * cos(angle),
             centre_y + radius * sin(angle),
