@@ -44,6 +44,7 @@ int main()
 
     x = x1;
     y = y1;
+    putpixel(x, y, BLACK);
 
     dx = x2 - x1;
     dy = y2 - y1;
