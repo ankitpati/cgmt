@@ -41,14 +41,36 @@ int main()
 
     for (x = 0, y = r; x <= y; ++x) {
         putpixel(cx - x, cx - y, 1);
+        setcolor(1);
+        line(cx, cy, cx - x, cx - y);
+
         putpixel(cx - x, cx + y, 2);
+        setcolor(2);
+        line(cx, cy, cx - x, cx + y);
+
         putpixel(cx + x, cx - y, 3);
+        setcolor(3);
+        line(cx, cy, cx + x, cx - y);
+
         putpixel(cx + x, cx + y, 4);
+        setcolor(4);
+        line(cx, cy, cx + x, cx + y);
 
         putpixel(cx - y, cx - x, 5);
+        setcolor(5);
+        line(cx, cy, cx - y, cx - x);
+
         putpixel(cx - y, cx + x, 6);
+        setcolor(6);
+        line(cx, cy, cx - y, cx + x);
+
         putpixel(cx + y, cx - x, 7);
+        setcolor(7);
+        line(cx, cy, cx + y, cx - x);
+
         putpixel(cx + y, cx + x, 8);
+        setcolor(8);
+        line(cx, cy, cx + y, cx + x);
 
         if (d < 0)
             d += 4*x + 6;
