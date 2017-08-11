@@ -5,8 +5,6 @@
 
 #include <graphics.h>
 
-#define DELAY_MS    20
-
 void my_floodfill(int x, int y)
 {
     if (getpixel(x, y) != WHITE) return;
