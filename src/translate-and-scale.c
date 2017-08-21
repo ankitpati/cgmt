@@ -103,7 +103,7 @@ int main()
     }
     line(poly[n - 1][X], poly[n - 1][Y], poly[0][X], poly[0][Y]);
 
-    puts("Is the displayed polygon and seed point accurate? (Y/n)");
+    puts("Is the displayed polygon accurate? (Y/n)");
     fgets(acc, 80, stdin);
 
     switch (*acc) {
