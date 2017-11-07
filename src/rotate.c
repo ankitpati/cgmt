@@ -146,13 +146,14 @@ int main()
         case 2:
             puts("Angle?");
             scanf(" %lf%*c", &angle);
+            angle = RAD(angle);
 
             sin_a = sin(angle);
             cos_a = cos(angle);
 
             rmat[0][0] = rmat[1][1] = cos_a;
             rmat[0][1] = rmat[1][0] = sin_a;
-            if (choice == 1) rmat[0][1] *= -1;
+            if (choice == 2) rmat[0][1] *= -1;
             else             rmat[1][0] *= -1;
 
             setcolor(colour = colour == 14 ? 0 : colour + 1);
@@ -167,6 +168,7 @@ int main()
         case 4:
             puts("Angle?");
             scanf(" %lf%*c", &angle);
+            angle = RAD(angle);
 
             sin_a = sin(angle);
             cos_a = cos(angle);
@@ -181,7 +183,7 @@ int main()
 
             rmat[0][0] = rmat[1][1] = cos_a;
             rmat[0][1] = rmat[1][0] = sin_a;
-            if (choice == 3) rmat[0][1] *= -1;
+            if (choice == 4) rmat[0][1] *= -1;
             else             rmat[1][0] *= -1;
 
             tmpmat2 = matrix_mul(tmpmat1, n, 3, rmat, 3, 3);
