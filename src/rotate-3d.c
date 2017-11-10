@@ -1,5 +1,7 @@
 #include <graphics.h>
 
+#define RAD(X) ( ((X) * M_PI) / 180.0 )
+
 int max_x, max_y, mid_x, mid_y;
 
 void axis()
@@ -12,6 +14,7 @@ int main()
 {
     int o, x1, x2, y1, y2;
     int gd = DETECT, gm;
+    double sin_o, cos_o;
 
     initgraph(&gd, &gm, "");
 
@@ -31,11 +34,15 @@ int main()
 
     puts("Rotating Angle?");
     scanf(" %d%*c", &o);
+    o = RAD(o);
 
-    x1 = 50 * cos(o * 3.14 / 180) - 100 * sin(o * 3.14 / 180);
-    y1 = 50 * sin(o * 3.14 / 180) + 100 * cos(o * 3.14 / 180);
-    x2 = 60 * cos(o * 3.14 / 180) -  90 * sin(o * 3.14 / 180);
-    y2 = 60 * sin(o * 3.14 / 180) +  90 * cos(o * 3.14 / 180);
+    sin_o = sin(o);
+    cos_o = cos(o);
+
+    x1 = 50 * cos_o - 100 * sin_o;
+    y1 = 50 * sin_o + 100 * cos_o;
+    x2 = 60 * cos_o -  90 * sin_o;
+    y2 = 60 * sin_o +  90 * cos_o;
 
     axis();
     puts("Rotation about z-axis...");
