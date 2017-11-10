@@ -50,7 +50,7 @@ int main()
 {
     int gd = DETECT, gm;
     int max_x, max_y, arb_x, arb_y, colour, choice, n, i;
-    double **poly, **to_free, **tmpmat1, **tmpmat2, angle, sin_a, cos_a;
+    double **poly, **to_free, **tmpmat1, **tmpmat2, angle;
     char **p, acc[80];
 
     double tmat[][3] = {
@@ -148,11 +148,8 @@ int main()
             scanf(" %lf%*c", &angle);
             angle = RAD(angle);
 
-            sin_a = sin(angle);
-            cos_a = cos(angle);
-
-            rmat[0][0] = rmat[1][1] = cos_a;
-            rmat[0][1] = rmat[1][0] = sin_a;
+            rmat[0][0] = rmat[1][1] = cos(angle);
+            rmat[0][1] = rmat[1][0] = sin(angle);
             if (choice == 2) rmat[0][1] *= -1;
             else             rmat[1][0] *= -1;
 
@@ -170,9 +167,6 @@ int main()
             scanf(" %lf%*c", &angle);
             angle = RAD(angle);
 
-            sin_a = sin(angle);
-            cos_a = cos(angle);
-
             puts("Arbitrary Point?");
             scanf(" %d %d%*c", &arb_x, &arb_y);
 
@@ -181,8 +175,8 @@ int main()
 
             tmpmat1 = matrix_mul(poly, n, 3, tmat, 3, 3);
 
-            rmat[0][0] = rmat[1][1] = cos_a;
-            rmat[0][1] = rmat[1][0] = sin_a;
+            rmat[0][0] = rmat[1][1] = cos(angle);
+            rmat[0][1] = rmat[1][0] = sin(angle);
             if (choice == 4) rmat[0][1] *= -1;
             else             rmat[1][0] *= -1;
 
