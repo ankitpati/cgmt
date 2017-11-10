@@ -72,12 +72,7 @@ int main()
         setcolor(8);
         line(cx, cy, cx + y, cx + x);
 
-        if (d < 0)
-            d += 4*x + 6;
-        else {
-            --y;
-            d += 4*(x - y) + 10;
-        }
+        d += d < 0 ? 4*x + 6 : 4*(x - --y) + 10;
 
         delay(DELAY_MS);
     }
