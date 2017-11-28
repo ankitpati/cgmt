@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# lempel-ziv.pl
+# lempel-ziv-welch.pl
 # Date  : 28 November 2017
 # Author: Ankit Pati
 
@@ -15,7 +15,7 @@ my %dict;
 
 my $code = @prelist;
 
-print "Enter lines to compress with Lempel-Ziv. Ctrl+D to end.\n\n";
+print "Enter lines to compress with Lempel-Ziv-Welch. Ctrl+D to end.\n\n";
 
 while (<>) {
     chomp;
@@ -43,7 +43,7 @@ foreach (sort {$a <=> $b} keys %revdict) {
     print " $_\t->\t$revdict{$_}\n" if $_ >= @prelist;
 }
 
-# end of lempel-ziv.pl
+# end of lempel-ziv-welch.pl
 
 __END__
 Output
