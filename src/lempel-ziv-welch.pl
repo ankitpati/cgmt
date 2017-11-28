@@ -15,10 +15,13 @@ my %dict;
 
 my $code = @prelist;
 
+my $ulen = my $clen = 0;
+
 print "Enter lines to compress with Lempel-Ziv-Welch. Ctrl+D to end.\n\n";
 
 while (<>) {
     chomp;
+    $ulen += length;
 
     my $w = '';
 
@@ -28,12 +31,12 @@ while (<>) {
         }
         else {
             $dict{$w.$c} = $code++;
-            print $dict{$w}.' ';
+            print($dict{$w}.' '), ++$clen;
             $w = $c;
         }
     }
 
-    print "$dict{$w}\n" if $w;
+    print("$dict{$w}\n"), ++$clen if $w;
 }
 print "\n";
 
@@ -42,6 +45,13 @@ my %revdict = reverse %dict;
 foreach (sort {$a <=> $b} keys %revdict) {
     print " $_\t->\t$revdict{$_}\n" if $_ >= @prelist;
 }
+print "\n";
+
+printf <<'EOF', $ulen, $clen, 100 * ($ulen - $clen) / $ulen;
+Uncompressed Length = %u
+Compressed   Length = %u
+Compression  Ratio  = %.2lf%%
+EOF
 
 # end of lempel-ziv-welch.pl
 
@@ -69,3 +79,7 @@ Extended Dictionary
  107    ->      TOBE
  108    ->      EOR
  109    ->      RNO
+
+Uncompressed Length = 24
+Compressed   Length = 16
+Compression  Ratio  = 33.33%
