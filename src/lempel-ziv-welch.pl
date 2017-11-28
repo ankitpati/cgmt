@@ -33,7 +33,7 @@ while (<>) {
         }
     }
 
-    print "$dict{$w}\n";
+    print "$dict{$w}\n" if $w;
 }
 print "\n";
 
