@@ -38,8 +38,9 @@ while (<>) {
 print "\n";
 
 print "Extended Dictionary\n";
-foreach (sort keys %dict) {
-    print "\t'$_' => '$dict{$_}'\n" if $dict{$_} >= @prelist;
+my %revdict = reverse %dict;
+foreach (sort {$a <=> $b} keys %revdict) {
+    print " $_\t->\t$revdict{$_}\n" if $_ >= @prelist;
 }
 
 # end of lempel-ziv.pl
@@ -53,18 +54,18 @@ TOBEORNOTTOBEORTOBEORNOT
 46 41 28 31 41 44 40 41 46 95 97 99 104 98 100 102
 
 Extended Dictionary
-    'BE' => '97'
-    'BEO' => '105'
-    'EO' => '98'
-    'EOR' => '108'
-    'NO' => '101'
-    'OB' => '96'
-    'OR' => '99'
-    'ORT' => '106'
-    'OT' => '102'
-    'RN' => '100'
-    'RNO' => '109'
-    'TO' => '95'
-    'TOB' => '104'
-    'TOBE' => '107'
-    'TT' => '103'
+ 95     ->      TO
+ 96     ->      OB
+ 97     ->      BE
+ 98     ->      EO
+ 99     ->      OR
+ 100    ->      RN
+ 101    ->      NO
+ 102    ->      OT
+ 103    ->      TT
+ 104    ->      TOB
+ 105    ->      BEO
+ 106    ->      ORT
+ 107    ->      TOBE
+ 108    ->      EOR
+ 109    ->      RNO
