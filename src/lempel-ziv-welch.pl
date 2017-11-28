@@ -47,7 +47,7 @@ foreach (sort {$a <=> $b} keys %revdict) {
 }
 print "\n";
 
-printf <<'EOF', $ulen, $clen, 100 * ($ulen - $clen) / $ulen;
+printf <<'EOF', $ulen, $clen, 100 * ($ulen - $clen) / ($ulen || 1);
 Uncompressed Length = %u
 Compressed   Length = %u
 Compression  Ratio  = %.2lf%%
